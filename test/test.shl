@@ -1,6 +1,6 @@
-#include "simplex_noise.h"
+/*#include "simplex_noise.h"
 
 vec4 testMain(vec2 coords)
 {
     return vec4(simplex_noise4(vec4(coords.xy * 20, 1.0, 1.0)).xxx, 1.0);
-}
+}*/

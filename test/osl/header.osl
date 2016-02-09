@@ -1,0 +1,4 @@
+surface test(output color TestColor = color(1.0, 1.0, 0.0))
+{
+    TestColor = color(0.0, 1.0, 0.0);
+}
