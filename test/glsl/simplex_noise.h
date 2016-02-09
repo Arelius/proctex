@@ -124,10 +124,3 @@ float simplex_noise4(vec4 v)
     return 49.0 * ( dot(m0*m0, vec3( dot( p0, x0 ), dot( p1, x1 ), dot( p2, x2 )))
                     + dot(m1*m1, vec2( dot( p3, x3 ), dot( p4, x4 ) ) ) ) ;
 }
-
-in vec2 outTexCoord;
-
-void main(void)
-{
-    gl_FragColor = vec4(simplex_noise4(vec4(outTexCoord.xy * 20, 1.0, 1.0)).xxx, 1.0);
-}

@@ -7,7 +7,7 @@
 #include "glext_loader.inc"
 #undef GL_DECL
 
-#define log(svr, msg) printf(msg)
+#define log(svr, msg) OutputDebugStringA(msg)
 
 const char* shaderHeader = "#version 420\n";
 
@@ -99,13 +99,13 @@ GLuint CreateShaderProgram(const char* vfilename, const char* pfilename)
      if(link_status == GL_FALSE)
      {
          size_t buf_len = 0;
-         //glGetProgramiv(shader, GL_INFO_LOG_LENGTH, (GLsizei*)&buf_len);
+         glGetProgramiv(program, GL_INFO_LOG_LENGTH, (GLsizei*)&buf_len);
          if(buf_len)
          {
              char* buffer = (char*)malloc(buf_len);
              assert(buffer);
              size_t read_len = 0;
-             //glGetProgramInfoLog(shader, buf_len, (GLsizei*)&read_len, buffer);
+             glGetProgramInfoLog(program, buf_len, (GLsizei*)&read_len, buffer);
              assert(buf_len == read_len + 1);
              buffer[buf_len] = '\0';
              log(LOG_ERROR, buffer);
