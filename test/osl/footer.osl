@@ -1,0 +1,4 @@
+surface test(output color TestColor = color(1.0, 1.0, 1.0))
+{
+    TestColor = testMain(point(0.0, 0.0, 0.0));
+}

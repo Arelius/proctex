@@ -1,8 +1,11 @@
 in vec2 outTexCoord;
 
-vec4 testMain(vec2 coords);
+#define color vec3
+#define point vec3
+
+color testMain(point coords);
 
 void main(void)
 {
-    gl_FragColor = testMain(outTexCoord);
+    gl_FragColor = vec4(testMain(vec3(outTexCoord, 0.0)), 1.0);
 }

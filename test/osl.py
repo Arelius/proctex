@@ -5,6 +5,7 @@ import sys
 shadeBin = "../../osl/bin/testshade.exe"
 cmplBin = "../../osl/bin/oslc.exe"
 oslHeader = "osl/header.osl"
+oslFooter = "osl/footer.osl"
 intermediatePath = "osl/intermediate/"
 includes = ["osl"]
 viewerPath = "C:/Program Files (x86)/IrfanView/i_view32.exe"
@@ -18,6 +19,8 @@ def RunTest(shaderPath):
         with open(oslHeader, "r") as srcFile:
             destFile.write(srcFile.read())
         with open(shaderPath, "r") as srcFile:
+            destFile.write(srcFile.read())
+        with open(oslFooter, "r") as srcFile:
             destFile.write(srcFile.read())
     subprocess.call([cmplBin, oslPath])
     osoShader, osoExt = os.path.splitext(oslPath)
