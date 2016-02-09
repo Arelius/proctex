@@ -3,5 +3,5 @@
 color testMain(point coords)
 {
     //return vec4(simplex_noise4(vec4(coords.xy * 20, 1.0, 1.0)).xxx, 1.0);
-    return color(1.0, 0.0, 0.0);
+    return color(coords[0], coords[1], 0.0);
 }
